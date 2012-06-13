@@ -1,0 +1,96 @@
+body {
+    background-color: #ccc;
+    font-family: sans-serif;
+}
+
+div#soundlist {
+    margin: auto;
+    padding: 5px;
+    position: relative;
+    width: 80%;
+    background-color: #ddd;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+div.effect {
+    font-size: 12px;
+    display: inline-table;
+    margin: 3px 2px;
+    padding: 2px 5px;
+    text-align: center;
+    border: solid 1px goldenrod;
+    background-color: gold;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+div.effect:hover {
+    cursor: move;
+}
+
+div#keyboard {
+    margin: 20px auto;
+    position: relative;
+}
+
+div.row {
+    margin: auto;
+}
+
+div#numbers {
+    padding-left: 0cm;
+    width: 17.6cm;
+}
+
+div#first {
+    padding-left: 0.6cm;
+    width: 17cm;
+}
+
+div#second {
+    padding-left: 1.2cm;
+    width: 16.4cm;
+}
+
+div#thirth {
+    padding-left: 1.8cm;
+    width: 15.8cm;
+}
+
+div.key {
+    display: inline-block;
+    margin: 0.06cm 0.01cm;
+    border: solid 1px #444;
+    width: 1.5cm;
+    height: 1.5cm;
+    color: #444;
+    background-color: #fff;
+    border-radius: 0.1cm;
+    -moz-border-radius: 0.1cm;
+    -webkit-border-radius: 0.1cm;
+}
+
+div.key.pressed {
+    background-color: #444;
+    color: #fff;
+}
+
+div.title {
+    font-size: 12px;
+    font-style: oblique;
+    height: 0.3cm;
+    margin: 0;
+    padding: 0.1cm 0.2cm;
+}
+
+div.sound {
+    font-size: 8px;
+    height: 1cm;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+}
