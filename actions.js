@@ -1,43 +1,39 @@
 $(function(){
-    $(document).live('keydown', function(event){
-	var character = String.fromCharCode(event.keyCode).toUpperCase();
-	if ((character >= '0' && character <= '9') || (character >= 'A' && character <= 'Z')) {
-	    $("div.key#" + character).addClass("pressed");
-	}
-    });
 
-    $(document).live('keyup', function(event){
-	var character = String.fromCharCode(event.keyCode).toUpperCase();
-	if ((character >= '0' && character <= '9') || (character >= 'A' && character <= 'Z')) {
-	    $("div.key#" + character).removeClass("pressed");
-	}
-    });
+	$(document).on({
+		keydown: function (event) {
+			var keyCode = event.keyCode,
+					character = String.fromCharCode(keyCode).toUpperCase();
 
-    $(".effect").draggable({
-	revert: true,
-	cursor: 'move'
-    });
+			/[A-Z0-9]/.test(character) && $("div.key#" + character).addClass("pressed");
+		},
+		keyup: function (event) {
+			var keyCode = event.keyCode,
+					character = String.fromCharCode(keyCode).toUpperCase();
 
-//  $(".effect").sortable();
-    $(".effect").disableSelection();
+			/[A-Z0-9]/.test(character) && $("div.key#" + character).removeClass("pressed");
+		}
+	});
 
-    $(".key").droppable({
-	drop: function( event, ui ) {
-	    $(this).children('.sound').html(ui.draggable.html());
-	}
-    });
+	$(".effect").draggable({
+		revert: true,
+		cursor: 'move'
+	}).disableSelection();
 
-    $(".key").on({
-	mousedown: function(){
-	    $(this).addClass("pressed");
-	},
-	mouseup: function(){
-	    $(this).removeClass("pressed");
-	},
-	mouseleave: function(){
-	    $(this).removeClass("pressed");
-	}
-    });
+	$(".key").on({
+		mousedown: function(){
+			$(this).addClass("pressed");
+		},
+		mouseup: function(){
+			$(this).removeClass("pressed");
+		},
+		mouseleave: function(){
+			$(this).removeClass("pressed");
+		}
+	}).droppable({
+		drop: function( event, ui ) {
+			$(this).children('.sound').html(ui.draggable.html());
+		}
+	}).disableSelection();
 
-    $(".key").disableSelection();
 });
